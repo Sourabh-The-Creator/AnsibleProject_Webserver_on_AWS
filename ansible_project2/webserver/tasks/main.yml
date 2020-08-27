@@ -1,0 +1,19 @@
+---
+# tasks file for webserver
+#
+- name: Configure webserver
+  package:
+          name: "httpd"
+          state: present
+- name: Copy file
+  get_url: 
+           url: "https://raw.githubusercontent.com/Sourabh-The-Creator/AnsibleProject_Webserver_on_AWS/master/index.html" 
+           dest: "/var/www/html"
+
+- name: Start the service
+  service:
+          name: "httpd"
+          state: started
+          enable: yes
+
+

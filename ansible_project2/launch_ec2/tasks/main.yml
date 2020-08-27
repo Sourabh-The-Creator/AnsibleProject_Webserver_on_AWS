@@ -1,0 +1,20 @@
+---
+# tasks file for launch_ec2
+#
+ 
+
+- name: launch ec2
+  ec2:
+          key_name: mykey
+          instance_type: t2.micro
+          image: ami-0ebc1ac48dfd14136
+          wait: yes
+          group_id: sg-e88df28a
+          count: 2
+          state: present
+          vpc_subnet_id: subnet-c5e8d2ad
+          assign_public_ip: yes
+          region: ap-south-1
+          aws_access_key: "{{access_key}}"
+          aws_secret_key: "{{secret_key}}"
+          
